@@ -1,23 +1,7 @@
 ---
 layout: post
-title: Task Item List
-tags: [to-do list]
+title: 첫번째 github.io 게시물!
+tags: [test]
 ---
 
-This post tests the style of a task item list.
-
-Source:
-
-```markdown
-- [x] Eating
-- [ ] Walking
-  - [ ] Running
-- [ ] Sleeping
-```
-
-Rendered:
-
-- [x] Eating
-- [ ] Walking
-  - [ ] Running
-- [ ] Sleeping
+오늘은 github.io에 처음으로 게시물을 올려보고자 한다!
