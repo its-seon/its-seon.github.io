@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>PX4 &amp; ROS2 Setup | its-seon</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="PX4 &amp; ROS2 Setup" />
+<meta name="author" content="Juno Seon" />
+<meta property="og:locale" content="kr" />
+<meta name="description" content="PX4 &amp; ROS2 Setup" />
+<meta property="og:description" content="PX4 &amp; ROS2 Setup" />
+<link rel="canonical" href="http://localhost:4000/2024/04/29/px4-ros2.html" />
+<meta property="og:url" content="http://localhost:4000/2024/04/29/px4-ros2.html" />
+<meta property="og:site_name" content="its-seon" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-29T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="PX4 &amp; ROS2 Setup" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juno Seon"},"dateModified":"2024-04-29T00:00:00+09:00","datePublished":"2024-04-29T00:00:00+09:00","description":"PX4 &amp; ROS2 Setup","headline":"PX4 &amp; ROS2 Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/04/29/px4-ros2.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Juno Seon"},"url":"http://localhost:4000/2024/04/29/px4-ros2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="its-seon" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">its-seon</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/logo.png" class="author-avatar u-photo align-center" alt="Juno Seon">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Juno Seon</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:its.seon99@gmail.com">its.seon99@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/its-seon"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">PX4 &amp; ROS2 Setup</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-04-29T00:00:00+09:00" itemprop="datePublished">
+        Apr 29, 2024
+      </time></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1>PX4 &amp; ROS2 Setup</h1>
+
+<p>오늘은 드론과 ROS2를 공부하기 위한 시뮬레이션 셋업을 하고자 한다. (오늘은 설치만 할 예정이다. 자세한 내용은 다음 포스트에 정리하고자 한다.)</p>
+
+<p>데스크탑 환경은 Ubuntu 22.04를 사용한다.</p>
+
+<p>순서는 다음과 같다.</p>
+<ol>
+  <li>PX4 설치</li>
+  <li>ROS2 설치</li>
+  <li>Micro XRCE-DDS Agent &amp; Client 셋업</li>
+  <li>ROS2 Workspace 빌드 및 실행</li>
+</ol>
+
+<h3>PX4 설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+</span>git clone https://github.com/PX4/PX4-Autopilot.git <span class="nt">--recursive</span>
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+<span class="nb">cd </span>PX4-Autopilot/
+make px4_sitl
+</code></pre></div></div>
+
+<h3>ros2 humble 설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install </span>locales
+<span class="nb">sudo </span>locale-gen en_US en_US.UTF-8
+<span class="nb">sudo </span>update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">sudo </span>apt <span class="nb">install </span>software-properties-common
+<span class="nb">sudo </span>add-apt-repository universe
+<span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install </span>curl <span class="nt">-y</span>
+<span class="nb">sudo </span>curl <span class="nt">-sSL</span> https://raw.githubusercontent.com/ros/rosdistro/master/ros.key <span class="nt">-o</span> /usr/share/keyrings/ros-archive-keyring.gpg
+<span class="nb">echo</span> <span class="s2">"deb [arch=</span><span class="si">$(</span>dpkg <span class="nt">--print-architecture</span><span class="si">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="si">$(</span><span class="nb">.</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$UBUNTU_CODENAME</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/ros2.list <span class="o">&gt;</span> /dev/null
+<span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>ros-humble-desktop
+<span class="nb">sudo </span>apt <span class="nb">install </span>ros-dev-tools
+<span class="nb">source</span> /opt/ros/humble/setup.bash <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"source /opt/ros/humble/setup.bash"</span> <span class="o">&gt;&gt;</span> .bashrc
+</code></pre></div></div>
+<ul>
+  <li>python dependencies 설치</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">-U</span> <span class="nv">empy</span><span class="o">==</span>3.3.4 pyros-genmsg setuptools
+</code></pre></div></div>
+
+<h3>Micro XRCE-DDS Agent &amp; Client 설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+</span>git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+<span class="nb">cd </span>Micro-XRCE-DDS-Agent
+<span class="nb">mkdir </span>build
+<span class="nb">cd </span>build
+cmake ..
+make
+<span class="nb">sudo </span>make <span class="nb">install
+sudo </span>ldconfig /usr/local/lib/
+</code></pre></div></div>
+
+<h3>ROS2 Workspace 설치 및 다운</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+mkdir</span> <span class="nt">-p</span> ~/ws_sensor_combined/src/
+<span class="nb">cd</span> ~/ws_sensor_combined/src/
+git clone https://github.com/PX4/px4_msgs.git
+git clone https://github.com/PX4/px4_ros_com.git
+<span class="nb">cd</span> ..
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+colcon build
+</code></pre></div></div>
+
+<h3>설치 테스트</h3>
+
+<p>그러면 이제 잘 설치가 되었는지 확인해보자. 목표는 드론을 띄우는 것이다.</p>
+
+<p>먼저 터미널은 4개를 준비한다.</p>
+
+<ol>
+  <li>Micro XRCE 실행
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Micro-XRCE-DDS-Agent
+MicroXRCEAgent udp4 <span class="nt">-p</span> 8888
+</code></pre></div>    </div>
+  </li>
+  <li>gazebo simulation 실행
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/PX4-Autopilot
+make px4_sitl gz_x500
+</code></pre></div>    </div>
+  </li>
+  <li>예제코드 돌려보기1: sensor_combined_listener
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ws_sensor_combined
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source install</span>/setup.bash
+ros2 launch px4_ros_com sensor_combined_listener.launch.py
+</code></pre></div>    </div>
+
+    <p>터미널에 아래와 같은 결과가 보이면 된다.</p>
+
+    <p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/d0adb540-f228-4937-ac78-36b8e464b6ee" alt="Screenshot from 2024-04-29 18-44-39" /></p>
+  </li>
+  <li>예제코드 돌려보기2: offboard_control
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ws_sensor_combined
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source install</span>/setup.bash
+ros2 run px4_ros_com offboard_control
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3>성공!</h3>
+
+<p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/c5bd9c0e-e409-4739-9b28-72b0f3210861" alt="Screenshot from 2024-04-29 18-38-56" /></p>
+
+<h3>Referece</h3>
+
+<p><a href="https://docs.px4.io/main/en/ros/ros2_comm.html">https://docs.px4.io/main/en/ros/ros2_comm.html</a></p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#px4-autopilot">px4-autopilot</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#ros2">ros2</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#drone-simulation">drone-simulation</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/2024/04/27/rrt-algorithm.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> rrt algorithm (c++)
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 Juno Seon; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Hi i&#39;m student and i&#39;m studying ROBOTICS</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

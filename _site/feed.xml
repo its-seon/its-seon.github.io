@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-04-27T23:00:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">rrt algorithm (c++)</title><link href="http://localhost:4000/2024/04/27/rrt-algorithm.html" rel="alternate" type="text/html" title="rrt algorithm (c++)" /><published>2024-04-27T00:00:00+09:00</published><updated>2024-04-27T00:00:00+09:00</updated><id>http://localhost:4000/2024/04/27/rrt-algorithm</id><content type="html" xml:base="http://localhost:4000/2024/04/27/rrt-algorithm.html"><![CDATA[<h1>RRT Algorithm</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-04-29T18:45:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">PX4 &amp;amp; ROS2 Setup</title><link href="http://localhost:4000/2024/04/29/px4-ros2.html" rel="alternate" type="text/html" title="PX4 &amp;amp; ROS2 Setup" /><published>2024-04-29T00:00:00+09:00</published><updated>2024-04-29T00:00:00+09:00</updated><id>http://localhost:4000/2024/04/29/px4-ros2</id><content type="html" xml:base="http://localhost:4000/2024/04/29/px4-ros2.html"><![CDATA[<h1>PX4 &amp; ROS2 Setup</h1>
+
+<p>오늘은 드론과 ROS2를 공부하기 위한 시뮬레이션 셋업을 하고자 한다. (오늘은 설치만 할 예정이다. 자세한 내용은 다음 포스트에 정리하고자 한다.)</p>
+
+<p>데스크탑 환경은 Ubuntu 22.04를 사용한다.</p>
+
+<p>순서는 다음과 같다.</p>
+<ol>
+  <li>PX4 설치</li>
+  <li>ROS2 설치</li>
+  <li>Micro XRCE-DDS Agent &amp; Client 셋업</li>
+  <li>ROS2 Workspace 빌드 및 실행</li>
+</ol>
+
+<h3>PX4 설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+</span>git clone https://github.com/PX4/PX4-Autopilot.git <span class="nt">--recursive</span>
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+<span class="nb">cd </span>PX4-Autopilot/
+make px4_sitl
+</code></pre></div></div>
+
+<h3>ros2 humble 설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install </span>locales
+<span class="nb">sudo </span>locale-gen en_US en_US.UTF-8
+<span class="nb">sudo </span>update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">sudo </span>apt <span class="nb">install </span>software-properties-common
+<span class="nb">sudo </span>add-apt-repository universe
+<span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install </span>curl <span class="nt">-y</span>
+<span class="nb">sudo </span>curl <span class="nt">-sSL</span> https://raw.githubusercontent.com/ros/rosdistro/master/ros.key <span class="nt">-o</span> /usr/share/keyrings/ros-archive-keyring.gpg
+<span class="nb">echo</span> <span class="s2">"deb [arch=</span><span class="si">$(</span>dpkg <span class="nt">--print-architecture</span><span class="si">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="si">$(</span><span class="nb">.</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$UBUNTU_CODENAME</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/ros2.list <span class="o">&gt;</span> /dev/null
+<span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>ros-humble-desktop
+<span class="nb">sudo </span>apt <span class="nb">install </span>ros-dev-tools
+<span class="nb">source</span> /opt/ros/humble/setup.bash <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"source /opt/ros/humble/setup.bash"</span> <span class="o">&gt;&gt;</span> .bashrc
+</code></pre></div></div>
+<ul>
+  <li>python dependencies 설치</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">-U</span> <span class="nv">empy</span><span class="o">==</span>3.3.4 pyros-genmsg setuptools
+</code></pre></div></div>
+
+<h3>Micro XRCE-DDS Agent &amp; Client 설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+</span>git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+<span class="nb">cd </span>Micro-XRCE-DDS-Agent
+<span class="nb">mkdir </span>build
+<span class="nb">cd </span>build
+cmake ..
+make
+<span class="nb">sudo </span>make <span class="nb">install
+sudo </span>ldconfig /usr/local/lib/
+</code></pre></div></div>
+
+<h3>ROS2 Workspace 설치 및 다운</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+mkdir</span> <span class="nt">-p</span> ~/ws_sensor_combined/src/
+<span class="nb">cd</span> ~/ws_sensor_combined/src/
+git clone https://github.com/PX4/px4_msgs.git
+git clone https://github.com/PX4/px4_ros_com.git
+<span class="nb">cd</span> ..
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+colcon build
+</code></pre></div></div>
+
+<h3>설치 테스트</h3>
+
+<p>그러면 이제 잘 설치가 되었는지 확인해보자. 목표는 드론을 띄우는 것이다.</p>
+
+<p>먼저 터미널은 4개를 준비한다.</p>
+
+<ol>
+  <li>Micro XRCE 실행
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Micro-XRCE-DDS-Agent
+MicroXRCEAgent udp4 <span class="nt">-p</span> 8888
+</code></pre></div>    </div>
+  </li>
+  <li>gazebo simulation 실행
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/PX4-Autopilot
+make px4_sitl gz_x500
+</code></pre></div>    </div>
+  </li>
+  <li>예제코드 돌려보기1: sensor_combined_listener
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ws_sensor_combined
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source install</span>/setup.bash
+ros2 launch px4_ros_com sensor_combined_listener.launch.py
+</code></pre></div>    </div>
+
+    <p>터미널에 아래와 같은 결과가 보이면 된다.</p>
+
+    <p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/d0adb540-f228-4937-ac78-36b8e464b6ee" alt="Screenshot from 2024-04-29 18-44-39" /></p>
+  </li>
+  <li>예제코드 돌려보기2: offboard_control
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/ws_sensor_combined
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source install</span>/setup.bash
+ros2 run px4_ros_com offboard_control
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3>성공!</h3>
+
+<p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/c5bd9c0e-e409-4739-9b28-72b0f3210861" alt="Screenshot from 2024-04-29 18-38-56" /></p>
+
+<h3>Referece</h3>
+
+<p><a href="https://docs.px4.io/main/en/ros/ros2_comm.html">https://docs.px4.io/main/en/ros/ros2_comm.html</a></p>]]></content><author><name>Juno Seon</name></author><category term="PX4-Autopilot" /><category term="ROS2" /><category term="drone-simulation" /><summary type="html"><![CDATA[PX4 &amp; ROS2 Setup]]></summary></entry><entry><title type="html">rrt algorithm (c++)</title><link href="http://localhost:4000/2024/04/27/rrt-algorithm.html" rel="alternate" type="text/html" title="rrt algorithm (c++)" /><published>2024-04-27T00:00:00+09:00</published><updated>2024-04-27T00:00:00+09:00</updated><id>http://localhost:4000/2024/04/27/rrt-algorithm</id><content type="html" xml:base="http://localhost:4000/2024/04/27/rrt-algorithm.html"><![CDATA[<h1>RRT Algorithm</h1>
 
 <p>RRT(Rapidly-exploring Random Tree) 알고리즘은 수많은 경로계획(Path Planning) 알고리즘 중 하나로 샘플링 기반의 경로계획 알고리즘이다.</p>
 
