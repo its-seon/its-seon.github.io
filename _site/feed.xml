@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-05-07T21:44:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">PX4 &amp;amp; ROS2 User Guide</title><link href="http://localhost:4000/2024/05/07/px4-ros2-basic.html" rel="alternate" type="text/html" title="PX4 &amp;amp; ROS2 User Guide" /><published>2024-05-07T00:00:00+09:00</published><updated>2024-05-07T00:00:00+09:00</updated><id>http://localhost:4000/2024/05/07/px4-ros2-basic</id><content type="html" xml:base="http://localhost:4000/2024/05/07/px4-ros2-basic.html"><![CDATA[<h1>PX4 &amp; ROS2 User Guide</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-05-11T00:17:44+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">readme 파일에 이미지 올리기</title><link href="http://localhost:4000/2024/05/10/readme-image-upload.html" rel="alternate" type="text/html" title="readme 파일에 이미지 올리기" /><published>2024-05-10T00:00:00+09:00</published><updated>2024-05-10T00:00:00+09:00</updated><id>http://localhost:4000/2024/05/10/readme-image-upload</id><content type="html" xml:base="http://localhost:4000/2024/05/10/readme-image-upload.html"><![CDATA[<h1>readme 파일에 이미지 올리기</h1>
+
+<p>해당 포스트에서는 readme 파일에 이미지를 올리기 위해 어떻게 해야되는지 알아보려고 한다.</p>
+
+<p>github를 사용하다보면 readme 파일에 이미지를 올릴 상황이 많이 발생하는데 github issue를 사용하면 간단하게 업로드가 가능하다!</p>
+
+<h3>1. 먼저 github에 접속 후 아무 repository에 접속하고 Issues 창에 들어가 New issue 버튼을 클릭한다.</h3>
+
+<p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/92a5e67e-3b55-4efe-a595-6e03fdc2b496" alt="슬라이드1 PNG" /></p>
+
+<h3>2. Add a description에 자신이 사용하고 싶은 이미지를 업로드 한다.</h3>
+
+<p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/e3de93f3-03cc-477d-8a91-878fabe810e8" alt="슬라이드2 PNG" /></p>
+
+<h3>3. 2초정도 기다리면 아래와 같은 링크가 나오는데 해당 링크를 복사해서 사용하면 된다.</h3>
+
+<p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/4f85d851-2013-4f9f-9871-fdaed7a6645f" alt="슬라이드3 PNG" /></p>
+
+<h3>끝!</h3>]]></content><author><name>Juno Seon</name></author><category term="기타" /><summary type="html"><![CDATA[readme 파일에 이미지 올리기]]></summary></entry><entry><title type="html">PX4 &amp;amp; ROS2 User Guide</title><link href="http://localhost:4000/2024/05/07/px4-ros2-basic.html" rel="alternate" type="text/html" title="PX4 &amp;amp; ROS2 User Guide" /><published>2024-05-07T00:00:00+09:00</published><updated>2024-05-07T00:00:00+09:00</updated><id>http://localhost:4000/2024/05/07/px4-ros2-basic</id><content type="html" xml:base="http://localhost:4000/2024/05/07/px4-ros2-basic.html"><![CDATA[<h1>PX4 &amp; ROS2 User Guide</h1>
 
 <p>오늘은 저번시간에 PX4와 ROS2를 사용하기 위해 셋팅했던 px4-ros2에 대해 간단하게 정리한 내용이다. (까먹지 않을 정도만)</p>
 
