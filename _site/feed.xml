@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-06-28T23:34:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">Buffer란 뭘까?</title><link href="http://localhost:4000/2024/06/28/buffer.html" rel="alternate" type="text/html" title="Buffer란 뭘까?" /><published>2024-06-28T00:00:00+09:00</published><updated>2024-06-28T00:00:00+09:00</updated><id>http://localhost:4000/2024/06/28/buffer</id><content type="html" xml:base="http://localhost:4000/2024/06/28/buffer.html"><![CDATA[<h1>Buffer(버퍼)란 뭘까?</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-06-28T23:36:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">Buffer란 뭘까?</title><link href="http://localhost:4000/2024/06/28/buffer.html" rel="alternate" type="text/html" title="Buffer란 뭘까?" /><published>2024-06-28T00:00:00+09:00</published><updated>2024-06-28T00:00:00+09:00</updated><id>http://localhost:4000/2024/06/28/buffer</id><content type="html" xml:base="http://localhost:4000/2024/06/28/buffer.html"><![CDATA[<h1>Buffer(버퍼)란 뭘까?</h1>
 
 <p>버퍼란 데이터의 임시 저장 공간을 의미하는 용어입니다.</p>
 
@@ -66,7 +66,92 @@
 
 <p><a href="https://dololak.tistory.com/84">https://dololak.tistory.com/84</a></p>
 
-<p><a href="https://www.tcpschool.com/cpp/cpp_io_streamBuffer">https://www.tcpschool.com/cpp/cpp_io_streamBuffer</a></p>]]></content><author><name>Juno Seon</name></author><category term="프로그래밍 개념" /><summary type="html"><![CDATA[Buffer(버퍼)란 뭘까?]]></summary></entry><entry><title type="html">PX4 gazebo simulation world 변경</title><link href="http://localhost:4000/2024/05/17/px4-world.html" rel="alternate" type="text/html" title="PX4 gazebo simulation world 변경" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/2024/05/17/px4-world</id><content type="html" xml:base="http://localhost:4000/2024/05/17/px4-world.html"><![CDATA[<h1>PX4 gazebo simulation world 변경</h1>
+<p><a href="https://www.tcpschool.com/cpp/cpp_io_streamBuffer">https://www.tcpschool.com/cpp/cpp_io_streamBuffer</a></p>]]></content><author><name>Juno Seon</name></author><category term="프로그래밍 개념" /><summary type="html"><![CDATA[Buffer(버퍼)란 뭘까?]]></summary></entry><entry><title type="html">c++ ‘std::endl’ vs ‘\n’</title><link href="http://localhost:4000/2024/06/28/endl.html" rel="alternate" type="text/html" title="c++ ‘std::endl’ vs ‘\n’" /><published>2024-06-28T00:00:00+09:00</published><updated>2024-06-28T00:00:00+09:00</updated><id>http://localhost:4000/2024/06/28/endl</id><content type="html" xml:base="http://localhost:4000/2024/06/28/endl.html"><![CDATA[<h1>c++에서 'std::endl'과 '\n'의 차이점은 무엇인가?</h1>
+
+<p>c++에서 ‘std::endl’과 ‘\n’은 모두 새로운 줄을 표시하는데 사용되지만, 중요한 차이점이 있습니다.</p>
+
+<p>해당 포스트는 이전 포스트인 Buffer와 관련된 내용입니다.</p>
+
+<p>이전 포스트 해당 링크 참고 - <a href="https://its-seon.github.io/2024/06/28/buffer.html">https://its-seon.github.io/2024/06/28/buffer.html</a></p>
+
+<h3>1. 'std::endl'</h3>
+
+<p>‘std::endl’은 새로운 줄 문자를 출력하고 스트림을 강제로 플러시(flush)합니다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>해당 코드에서 ‘std::endl’은 단순히 새로운 줄을 추가하는 것 외에도 출력 버퍼를 강제로 비웁니다. 이로 인해 출력이 즉시 콘솔에 나타나게 됩니다.</p>
+
+<h3>2. '\n'</h3>
+
+<p>‘\n’은 새로운 줄 문자를 출력하지만 스트림을 플러시하지는 않습니다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"World</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>해당 코드에서는 ‘\n’은 단순히 새로운 줄 문자를 추가합니다. 출력 버퍼는 자동으로 가득 차거나 프로세스가 종료될 때 비워집니다.</p>
+
+<h3>'std::endl'과 '\n'의 차이점 요약</h3>
+
+<ul>
+  <li>
+    <p>플러시(flush) 동작: ‘std::endl’은 새로운 줄 문자를 출력하고 스트림을 플러시합니다. 반면, ‘\n’은 새로운 줄 문자만 출력하고 플러시하지 않습니다.</p>
+  </li>
+  <li>
+    <p>성능: ‘std::endl’은 매번 플러시를 수행하므로, 많은 경우 ‘\n’을 사용하는 것이 더 성능에 유리합니다. 특히 많은 양의 출력을 하는 경우에 ‘\n’을 사용하는 것이 효율적입니다.</p>
+  </li>
+  <li>
+    <p>사용 용도: ‘std::endl’은 주로 출력이 즉시 필요할 때 사용하고, ‘\n’은 단순히 줄 바꿈이 필요할 때 사용합니다.</p>
+  </li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//  '/dev/null'은 리눅스나 유닉스 시스템에서 모든 입력을 버리는 특수 파일</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">nullstream</span><span class="p">(</span><span class="s">"/dev/null"</span><span class="p">);</span>
+
+  <span class="c1">// std::endl 사용</span>
+  <span class="k">auto</span> <span class="n">start</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">nullstream</span> <span class="o">&lt;&lt;</span> <span class="s">"Line "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">auto</span> <span class="n">end</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"std::endl time: "</span> <span class="o">&lt;&lt;</span> <span class="n">duration</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" seconds"</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="c1">// \n 사용</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">nullstream</span> <span class="o">&lt;&lt;</span> <span class="s">"Line "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">end</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+  <span class="n">duration</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\\</span><span class="s">n time: "</span> <span class="o">&lt;&lt;</span> <span class="n">duration</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" seconds"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/3cc41454-889b-4829-986c-1952e03c71e7" alt="image-2" /></p>
+
+<p>실제로 위 코드로 실행시간을 비교해봤을 때 ‘\n’을 사용하는 것이 훨씬 빠른것을 확인할 수 있습니다.</p>]]></content><author><name>Juno Seon</name></author><category term="c++" /><summary type="html"><![CDATA[c++에서 'std::endl'과 '\n'의 차이점은 무엇인가?]]></summary></entry><entry><title type="html">PX4 gazebo simulation world 변경</title><link href="http://localhost:4000/2024/05/17/px4-world.html" rel="alternate" type="text/html" title="PX4 gazebo simulation world 변경" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/2024/05/17/px4-world</id><content type="html" xml:base="http://localhost:4000/2024/05/17/px4-world.html"><![CDATA[<h1>PX4 gazebo simulation world 변경</h1>
 
 <p>오늘은 저번시간에 세팅한 PX4 gazebo simulation에서 world를 변경해보고자 한다. (일종의 map이라고 생각하면 될 것 같다)</p>
 
