@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-06-28T23:36:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">Buffer란 뭘까?</title><link href="http://localhost:4000/2024/06/28/buffer.html" rel="alternate" type="text/html" title="Buffer란 뭘까?" /><published>2024-06-28T00:00:00+09:00</published><updated>2024-06-28T00:00:00+09:00</updated><id>http://localhost:4000/2024/06/28/buffer</id><content type="html" xml:base="http://localhost:4000/2024/06/28/buffer.html"><![CDATA[<h1>Buffer(버퍼)란 뭘까?</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="kr" /><updated>2024-06-29T01:12:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">its-seon</title><subtitle>Hi i&apos;m student and i&apos;m studying ROBOTICS</subtitle><author><name>Juno Seon</name></author><entry><title type="html">EOF란?</title><link href="http://localhost:4000/2024/06/29/EOF.html" rel="alternate" type="text/html" title="EOF란?" /><published>2024-06-29T00:00:00+09:00</published><updated>2024-06-29T00:00:00+09:00</updated><id>http://localhost:4000/2024/06/29/EOF</id><content type="html" xml:base="http://localhost:4000/2024/06/29/EOF.html"><![CDATA[<h1>EOF(End of File)란 무엇인가?</h1>
+
+<p>오늘은 EOF에 대해서 알아볼 예정입니다.</p>
+
+<p>EOF는 End of File의 약자로 파일의 끝 또는 종료를 나타냅니다.</p>
+
+<p>프로그래밍에서 파일 입출력을 처리할 때, 파일의 끝에 도달했음을 알리는 신호로 사용됩니다. 즉, EOF는 파일 스트림에서 더 이상 읽을 데이터가 없음을 의미합니다.</p>
+
+<p>c++에서는 다음과 같은 방법으로 EOF를 확인할 수 있습니다.</p>
+
+<h3>1. std::ifstream::eof()</h3>
+
+<p>‘std::ifstream’ 클래스의 eof() 멤버 함수를 사용하여 파일 끝에 도달했는지 확인할 수 있습니다.</p>
+
+<p>fstream, 파일 스트림은 기본적인 istream이나 ostream 클래스보다 지원하는 기능이 더 많기 때문에 이를 상속 받아서 작성되었으며, 각각을 상속 받은 것이 ifstream과 ofstream입니다. 이들 클래스를 모두 포함하는 라이브러리로 fstream을 사용하면 됩니다.</p>
+
+<p><b>‘std::ifstream.eof()’는 파일의 끝에 도달하면 ‘true’를 반환합니다.</b></p>
+
+<h3>2. std::cin.eof()</h3>
+
+<p>std::cin.eof()는 eofbit를 검사해서 마지막 입력값에 도달하는 경우 ‘true’를, 그렇지 않으면 ‘false’를 반환합니다.</p>
+
+<h3>3. std::istream::operator bool 사용</h3>
+
+<p>파일 스트림은 조건문에서 사용할 수 있도록 변환 연산자를 제공합니다.</p>
+
+<p>이를 통해 파일 끝에 도달했는지 쉽게 확인할 수 있습니다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="s">"example.txt"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"파일을 열 수 없습니다."</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 파일 스트림의 상태를 확인</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">eof</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"파일 끝에 도달했습니다."</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"파일을 읽는 중에 오류가 발생했습니다."</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>여기서 !file은 파일 스트림에 오류가 있는지 확인하기 위한 조건문입니다. 오류가 있으면 ‘true’가 됩니다.</p>
+
+<p>이때 파일 끝에 도달한 경우(EOF인 경우)도 포함됩니다. 따라서 EOF인 경우에는 파일 끝에 도달했다는 결과를 출력합니다.</p>
+
+<h3>Reference</h3>
+
+<p><a href="https://heestory0324.tistory.com/10">https://heestory0324.tistory.com/10</a></p>
+
+<p><a href="https://velog.io/@c-jeongyyun/CPP-EOF-%ED%8C%90%EB%8B%A8%ED%95%98%EA%B8%B0">https://velog.io/@c-jeongyyun/CPP-EOF-%ED%8C%90%EB%8B%A8%ED%95%98%EA%B8%B0</a></p>]]></content><author><name>Juno Seon</name></author><category term="프로그래밍 개념" /><summary type="html"><![CDATA[EOF(End of File)란 무엇인가?]]></summary></entry><entry><title type="html">Buffer란 뭘까?</title><link href="http://localhost:4000/2024/06/28/buffer.html" rel="alternate" type="text/html" title="Buffer란 뭘까?" /><published>2024-06-28T00:00:00+09:00</published><updated>2024-06-28T00:00:00+09:00</updated><id>http://localhost:4000/2024/06/28/buffer</id><content type="html" xml:base="http://localhost:4000/2024/06/28/buffer.html"><![CDATA[<h1>Buffer(버퍼)란 뭘까?</h1>
 
 <p>버퍼란 데이터의 임시 저장 공간을 의미하는 용어입니다.</p>
 
@@ -32,7 +97,7 @@
 
 <p>iostream과 fstream 클래스 라이브러리의 중요 개념 중 하나가 바로 스트림(stream)입니다.</p>
 
-<h5>스트림(stream)이란?</h5>
+<p><b>스트림(stream)이란?</b></p>
 
 <p>c++ 프로그램은 파일이나 콘솔의 입출력을 직접 다루지 않고, 스트림(stream)이라는 흐름을 통해 다룹니다.</p>
 
@@ -42,7 +107,7 @@
 
 <p><img src="https://github.com/its-seon/its-seon.github.io/assets/145862553/87a6ff92-02eb-4f4f-baf2-3a5c6dcedc76" alt="image" /></p>
 
-<h5>버퍼(buffer)</h5>
+<p><b>버퍼(buffer)</b></p>
 
 <p>스트림은 내부에 위에서 말한 버퍼(Buffer)라는 임시 메모리 공간을 가지고 있습니다.</p>
 
