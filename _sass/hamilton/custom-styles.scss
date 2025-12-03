@@ -12,18 +12,19 @@
 
 // Fix site-body grid columns to ensure consistent width across all pages
 // Use fixed widths for both sidebar and main to prevent layout shifts
+// Using !important to ensure these styles override layout.scss
 .site-body {
-  max-width: $content-width;
-  margin: 0 auto;
-  grid-template-columns: calc(#{$content-width} * 0.24) calc(#{$content-width} * 0.76);
+  max-width: $content-width !important;
+  margin: 0 auto !important;
+  grid-template-columns: calc(#{$content-width} * 0.24) calc(#{$content-width} * 0.76) !important;
   
   @include media-query($on-medium) {
-    grid-template-columns: calc(#{$content-width} * 0.18) calc(#{$content-width} * 0.82);
+    grid-template-columns: calc(#{$content-width} * 0.18) calc(#{$content-width} * 0.82) !important;
   }
   
   @include media-query($on-small) {
-    max-width: 100%;
-    grid-template-columns: 1fr;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
   }
 }
 
